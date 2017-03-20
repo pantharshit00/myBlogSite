@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+        <style>
+            .fa-2x {
+                float: right;
+                position: relative;
+                top: -32px;
+            }
+            
+            .panel-heading a {
+                color: #fff;
+                text-decoration: none;
+            }
+        </style>
+</head>
+
+<body>
+    <% include ./partials/header %>
+        <div class="container">
+            <h1>Site Administration</h1>
+            <hr>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="/admin/create_new?token=<%= secret %>">
+                        <h4>Create New</h4><i class="fa fa-plus fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="/admin/edit_posts?token=<%= secret %>">
+                        <h4>Edit Posts</h4><i class="fa fa-pencil-square-o fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <% include ./partials/footer %>
+</body>
+
+</html>

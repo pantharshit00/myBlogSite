@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+</head>
+
+<body>
+    <% include ./partials/header %>
+        <div class="container">
+            <h1>Edit Post</h1>
+            <hr>
+            <form method="post" action="/admin/edit_post/update?token=<%= secret %>&id=<%= post.id%>">
+                <div class="form-group">
+                    <label><h3>Title</h3></label>
+                    <input type="text" class="form-control" value="<%= post.title %>" name="title">
+                </div>
+
+                <div class="form-group">
+                    <label><h3>Preview Text</h3></label>
+                    <textarea style="height:200px" name="preview" class="form-control"><%- post.preview %></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><h3>Content</h3></label>
+                    <textarea style="height:200px" name="content" class="form-control"><%- post.content %></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="submit">
+                </div>
+
+            </form>
+        </div>
+        <% include ./partials/footer %>
+</body>
+
+</html>

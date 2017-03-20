@@ -1,0 +1,54 @@
+<!--Search Modal-->
+<div id="search" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Search</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" id="search_error"></div>
+                <form id="search_form">
+                    <div class="input-group">
+                        <input class="form-control" id="input_search" type="text" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">Go!</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse-nav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="#">Harshit Pant</a>
+        </div>
+        <div id="collapse-nav" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/blogs">Blogs</a></li>
+            </ul>
+            <div class="hidden-xs">
+                <ul class="nav navbar-nav navbar-right">
+                    <li title="Translate"><a href="#"><i class="fa fa-globe"></i></a></li>
+                    <li title="Search"><a href="#" data-toggle="modal" data-target="#search"><i class="fa fa-search"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

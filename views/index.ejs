@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ./partials/head %>
+</head>
+
+<body>
+  <% include ./partials/header %>
+    <div class="showcase container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1><span id="write"></span></h1>
+            <h3>Find solution for your coding problems.</h3>
+            <br>
+            <a class="btn btn-primary" href="#blog-display">
+              <h5>Check them out!</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <% include ./partials/footer %>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.6/typed.min.js"></script>
+      <script>
+        console.log('Loaded!');
+        $(function () {
+          $('#write').typed({
+            strings: ["Learn", "Learn, Code", "Learn, Code, Blog", "Learn, Code, Blog, Share"],
+            typespeed: 0
+          })
+        })
+      </script>
+</body>
+
+</html>

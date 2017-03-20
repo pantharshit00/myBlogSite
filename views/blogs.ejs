@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+        <style>
+            body {
+                background-color: #f3f3f3;
+            }
+            
+            .panel a {
+                text-decoration: none;
+                color: #fff;
+            }
+            
+            .col-md-8>p {
+                font-family: quicksand;
+            }
+            
+            .white-container {
+                background: #fff;
+                padding: 30px;
+                margin-bottom: 20px;
+            }
+        </style>
+</head>
+
+<body>
+    <% include ./partials/header %>
+    <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-8 white-container">
+                    <h1>My Code Blogs</h1>
+                    <p id="count"></p>
+                    <hr>
+                    <div id="show">
+                        <%- posts %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% include ./partials/footer %>
+            <script>
+                // $.ajax({
+                //     type: 'get',
+                //     url: '/get_blogs',
+                //     beforeSend: function () {
+                //         $("#loader").html("Loading...")
+                //     },
+                //     success: function (data) {
+                //         $("#loader").hide();
+                //         $("#show").html(data);
+                //     }
+                // });
+                $(function () {
+                    var pageNo = window.location.search ? decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent("page").replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1")) : 1;
+                    $("#count").html("Page " + pageNo)
+                })
+            </script>
+</body>
+
+</html>

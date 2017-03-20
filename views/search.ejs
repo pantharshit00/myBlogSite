@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+</head>
+
+<body>
+    <% include ./partials/header %>
+    <div class="container">
+        <h1>Search</h1>
+        <gcse:searchresults-only></gcse:searchresults-only>
+    </div>
+        <script>
+            (function () {
+                var cx = '004720363591655918003:oucyn3blpi8';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+
+        </script>
+        <% include ./partials/footer %>
+</body>
+
+</html>

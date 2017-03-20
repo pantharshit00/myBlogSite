@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+        <style>
+            body {
+                background-color: #f3f3f3;
+            }
+            
+            .white-container {
+                background: #fff;
+                padding: 30px;
+                margin-bottom: 20px;
+            }
+        </style>
+</head>
+
+<body>
+    <% include ./partials/header %>
+    <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 white-container">
+                    <h1>
+                        <%= blog.title %>
+                    </h1>
+                    <div>
+                        <%- blog.content %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 white-container">
+                    <div class="white-container">
+                        <div id="disqus_thread"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/static/js/disqus.js" async defer>
+
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <% include ./partials/footer %>
+</body>
+
+</html>

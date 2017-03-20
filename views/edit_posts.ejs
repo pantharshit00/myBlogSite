@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+    <style>
+        .panel-heading a {
+            text-decoration: none;
+        }
+        .fa-trash{
+            padding-left: 15px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <% include ./partials/header %>
+        <div class="container">
+            <h1 class="center-block" id="loader"></h1>
+            <br>
+            <div id="posts"></div>
+        </div>
+    <% include ./partials/footer %>
+    <script>
+        $(function(){
+            $.ajax({
+                type: "GET",
+                url: "/admin/edit_posts/fetch?token=<%= secret %>",
+                beforeSend: function(){
+                    $("#loader").html("Loading...");
+                },
+                success: function(result){
+                    $("#loader").hide()
+                    $("#posts").html(result)
+                    $(".delete").click(function(){
+                        return confirm("Are you sure?")
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
