@@ -52,3 +52,39 @@ h1,h2,h3,h4,h5,h6{
     50% { opacity:0; }
     100% { opacity:1; }
 }
+
+footer{
+    background-color: #1a6ecc;
+    color: #fff;
+    margin-top: 20px;
+    padding: 40px 10px 20px 10px; 
+}
+
+.inline{
+    display: inline-block;
+}
+
+.white{
+    color: #fff !important;
+    padding: 14.5px 15px 14.5px 15px !important;
+}
+footer .navbar-nav>li{
+    float: left !important;
+}
+
+footer a{
+    color: #fff;
+}
+
+footer a:hover{
+    color: #fff;
+}
+
+@media all and (max-width:768px){
+    footer{
+        text-align: center !important;
+    }
+    footer .navbar-nav{
+        padding-left: 10px;
+    }
+}

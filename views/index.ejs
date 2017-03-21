@@ -21,7 +21,17 @@
         </div>
       </div>
     </div>
-    
+    <div class="container" id="blog-display">
+      <div class="row">
+        <<h1 style="text-align:center">Latest Posts</h1>
+        <div class="col-md-8 col-md-offset-2">
+          <br>
+          <div style="overflow-y:scroll; height: 300px;" id="showContent">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <% include ./partials/footer %>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.6/typed.min.js"></script>
       <script>
@@ -31,6 +41,28 @@
             strings: ["Learn", "Learn, Code", "Learn, Code, Blog", "Learn, Code, Blog, Share"],
             typespeed: 0
           })
+          $.ajax({
+            type: 'get',
+            url: '/get_blogs',
+            success: function (data) {
+              let posts = ``;
+              for (let currentPost of data) {
+                current = `<div class="panel panel-primary">
+                      <div class="panel-heading">
+                        <a href="/blog/${currentPost.id}" style="text-decoration: none; color:#fff"><h4>${currentPost.title}</h4></a>
+                      </div>
+                      <div class="panel-body">
+                        ${currentPost.preview}[&hellip;]
+                      </div>
+                      <div class="panel-footer">
+                      <h5>${new Date(currentPost.updatedAt).toLocaleString()}</h5>
+                      </div>
+                    </div>`;
+                posts += current
+              }
+              $("#showContent").html(posts);
+            }
+          });
         })
       </script>
 </body>

@@ -42,17 +42,6 @@
         </div>
         <% include ./partials/footer %>
             <script>
-                // $.ajax({
-                //     type: 'get',
-                //     url: '/get_blogs',
-                //     beforeSend: function () {
-                //         $("#loader").html("Loading...")
-                //     },
-                //     success: function (data) {
-                //         $("#loader").hide();
-                //         $("#show").html(data);
-                //     }
-                // });
                 $(function () {
                     var pageNo = window.location.search ? decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + encodeURIComponent("page").replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1")) : 1;
                     $("#count").html("Page " + pageNo)
