@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#search_error").hide(),$("#search_form").submit(function(e){e.preventDefault();var r=$("#input_search").val();""!=r&&r?window.location.replace("/search?q="+r):($("#search_error").show(),$("#search_error").html("Please enter a query"))})});

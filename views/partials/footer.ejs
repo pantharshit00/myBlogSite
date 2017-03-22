@@ -20,19 +20,4 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.6/typed.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#search_error").hide();
-        $("#search_form").submit(function (e) {
-            e.preventDefault();
-            var query = $("#input_search").val();
-            if (query == "" || !query) {
-                $("#search_error").show();
-                $("#search_error").html('Please enter a query')
-            }
-            else
-                window.location.replace("/search?q=" + query);
-        })
-    })
-
-</script>
+<script src="/static/js/main.js"></script>
