@@ -80,7 +80,7 @@ router.get('/blogs', (req, res) => {
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
                       </div>
                       <div class="panel-body">
-                        ${currentPost.preview}<a href="/blog/${currentPost.id}">[&hellip;]</a>
+                        ${currentPost.preview}<a href="/blog/${currentPost.id}" style="color:#000">[&hellip;]</a>
                       </div>
                       <div class="panel-footer">
                         <h5>${new Date(currentPost.updatedAt).toLocaleString()}</h5>
@@ -98,7 +98,7 @@ router.get('/blogs', (req, res) => {
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
                       </div>
                       <div class="panel-body">
-                        ${currentPost.preview}<a href="/blog/${currentPost.id}">[&hellip;]</a>
+                        ${currentPost.preview}<a href="/blog/${currentPost.id}" style="color:#000">[&hellip;]</a>
                       </div>
                       <div class="panel-footer">
                       <h5>${new Date(currentPost.updatedAt).toLocaleString()}</h5>
