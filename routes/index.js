@@ -98,7 +98,7 @@ router.get('/blogs', (req, res) => {
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
                       </div>
                       <div class="panel-body">
-                        ${currentPost.preview}[&hellip;]
+                        ${currentPost.preview}<a href="/blog/${currentPost.id}">[&hellip;]</a>
                       </div>
                       <div class="panel-footer">
                       <h5>${new Date(currentPost.updatedAt).toLocaleString()}</h5>
