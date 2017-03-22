@@ -1,5 +1,9 @@
 const express = require('express');
 const axios = require('axios');
+const Remarkable = require('remarkable');
+const md = new Remarkable({
+    html: true
+})
 
 const Post = require('../models/posts');
 const router = express.Router();
@@ -14,10 +18,12 @@ router.get('/blog/:id', (req, res) => {
       id: req.params.id
     }
   }).then((post) => {
+    let blog = post;
+    blog.content = md.render(blog.content)
     if (post == null)
       res.status(404).render('fourntfour');
     else
-      res.render('blogpost', { blog: post, title: post.title + " | Harshit's Code Blogs" });
+      res.render('blogpost', { blog, title: post.title + " | Harshit's Code Blogs" });
   })
 })
 
@@ -72,15 +78,16 @@ router.get('/blogs', (req, res) => {
 
       if (Math.ceil(max_id / 10) !== page) {
         for (let i = (page * 10) - 1; i >= (page * 10) - 10; i--) {
-          let currentPost = postsJSON[i];
+          let currentPost = postsJSON[i];       
           if (currentPost == undefined)
             continue;
+          currentPost.preview = md.render(currentPost.preview);  
           posts += `<div class="panel panel-primary">
                       <div class="panel-heading">
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
                       </div>
                       <div class="panel-body">
-                        ${currentPost.preview}<a href="/blog/${currentPost.id}" style="color:#0000ff">[&hellip;]</a>
+                        ${currentPost.preview}<a href="/blog/${currentPost.id}" class="btn btn-primary">Read More</a>
                       </div>
                       <div class="panel-footer">
                         <h5>${new Date(currentPost.updatedAt).toLocaleString()}</h5>
@@ -98,7 +105,7 @@ router.get('/blogs', (req, res) => {
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
                       </div>
                       <div class="panel-body">
-                        ${currentPost.preview}<a href="/blog/${currentPost.id}" style="color:#0000ff">[&hellip;]</a>
+                        ${currentPost.preview}<a href="/blog/${currentPost.id}" class="btn btn-primary">Read More</a>
                       </div>
                       <div class="panel-footer">
                       <h5>${new Date(currentPost.updatedAt).toLocaleString()}</h5>
@@ -121,7 +128,12 @@ router.get('/get_blogs', (req, res) => {
     if (posts == null)
       res.json({ err: "Not Found" })
     else {
-      res.json(posts);
+      let blogs = [];
+      for(let post of posts){
+        post.preview = md.render(post.preview);
+        blogs.push(post);
+      }
+      res.json(blogs);
     }
   })
 })

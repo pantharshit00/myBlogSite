@@ -7,6 +7,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 // Bringing in our model
 const Post = require('../models/posts');
 

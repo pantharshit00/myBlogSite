@@ -3,6 +3,7 @@
 
 <head>
     <% include ./partials/head %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.10.0/css/bootstrap-markdown.min.css" />
 </head>
 
 <body>
@@ -18,12 +19,12 @@
 
                 <div class="form-group">
                     <label><h3>Preview Text</h3></label>
-                    <textarea style="height:200px" name="preview" class="form-control"><%- post.preview %></textarea>
+                    <textarea id="preview" data-iconlibrary="fa" data-provide="markdown" style="height:200px" name="preview" class="form-control"><%- post.preview %></textarea>
                 </div>
 
                 <div class="form-group">
                     <label><h3>Content</h3></label>
-                    <textarea style="height:200px" name="content" class="form-control"><%- post.content %></textarea>
+                    <textarea id="content" data-iconlibrary="fa" data-provide="markdown" style="height:200px" name="content" class="form-control"><%- post.content %></textarea>
                 </div>
 
                 <div class="form-group">
@@ -33,6 +34,13 @@
             </form>
         </div>
         <% include ./partials/footer %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-markdown/2.10.0/js/bootstrap-markdown.min.js"></script>
+        <script>
+            $(function(){
+                $("#preview").markdown();
+                $("#content").markdown();
+            })
+        </script>
 </body>
 
 </html>
