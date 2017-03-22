@@ -22,6 +22,7 @@ router.get('/blog/:id', (req, res) => {
 })
 
 let host = (process.env.NODE_ENV !== "production") ? 'http://localhost:8080' : "http://blog.nxtshare.co.in";
+console.log(host);
 
 router.get('/blogs', (req, res) => {
 
