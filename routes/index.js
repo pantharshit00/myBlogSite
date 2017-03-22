@@ -73,6 +73,8 @@ router.get('/blogs', (req, res) => {
       if (Math.ceil(max_id / 10) !== page) {
         for (let i = (page * 10) - 1; i >= (page * 10) - 10; i--) {
           let currentPost = postsJSON[i];
+          if (currentPost == undefined)
+            continue;
           posts += `<div class="panel panel-primary">
                       <div class="panel-heading">
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
@@ -89,6 +91,8 @@ router.get('/blogs', (req, res) => {
       else {
         for (let i = max_id - 1; i >= (page * 10) - 10; i--) {
           let currentPost = postsJSON[i];
+          if (currentPost == undefined)
+            continue;
           posts += `<div class="panel panel-primary">
                       <div class="panel-heading">
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
@@ -108,7 +112,7 @@ router.get('/blogs', (req, res) => {
         posts
       })
     })
-  }).catch((err) => { console.log(err);if (err.response.status == 404) res.status(404).render('fourntfour') })
+  }).catch((err) => { console.log(err); if (err.response.status == 404) res.status(404).render('fourntfour') })
 });
 
 router.get('/get_blogs', (req, res) => {
