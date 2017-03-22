@@ -48,7 +48,7 @@
               var posts = "";
               for (var i = data.length - 1; i >= 0; i--) {
                 currentPost = data[i];
-                current = "<div class=\"panel panel-primary\">\n                      <div class=\"panel-heading\">\n                        <a href=\"/blog/" + currentPost.id + "\" style=\"text-decoration: none; color:#fff\"><h4>" + currentPost.title + "</h4></a>\n                      </div>\n                      <div class=\"panel-body\">\n                        " + currentPost.preview + "[&hellip;]\n                      </div>\n                      <div class=\"panel-footer\">\n                      <h5>" + new Date(currentPost.updatedAt).toLocaleString() + "</h5>\n                      </div>\n                    </div>";
+                current = "<div class=\"panel panel-primary\">\n                      <div class=\"panel-heading\">\n                        <a href=\"/blog/" + currentPost.id + "\" style=\"text-decoration: none; color:#fff\"><h4>" + currentPost.title + "</h4></a>\n                      </div>\n                      <div class=\"panel-body\">\n                        " + currentPost.preview + "<a href=\"/blog/" + currentPost.id + "\" style=\"color:#0000ff\">[&hellip;]</a>"+"\n                      </div>\n                      <div class=\"panel-footer\">\n                      <h5>" + new Date(currentPost.updatedAt).toLocaleString() + "</h5>\n                      </div>\n                    </div>";
                 posts += current;
               }
               $("#showContent").html(posts);
