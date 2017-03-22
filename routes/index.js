@@ -35,7 +35,7 @@ router.get('/blogs', (req, res) => {
     // Finding max no of articles
     Post.max('id').then((max_id) => {
 
-      // Pagination Bar making logic
+      // Pagination Bar making logics
       let paginationUl = (page - 1 != 0) ? `<li><a href="/blogs?page=${page - 1}">&laquo;</a></li>` : ``;
 
       for (let i = 1; i <= Math.ceil(max_id / 10); i++) {
@@ -108,7 +108,7 @@ router.get('/blogs', (req, res) => {
         posts
       })
     })
-  }).catch((err) => { if (err.response.status == 404) res.status(404).render('fourntfour') })
+  }).catch((err) => { console.log(err);if (err.response.status == 404) res.status(404).render('fourntfour') })
 });
 
 router.get('/get_blogs', (req, res) => {
