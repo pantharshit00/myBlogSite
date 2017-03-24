@@ -43,7 +43,7 @@ if (!debug) {
     if (req.secure)
       next();
     else {
-      res.status(301).redirect('https://' + 'www.nxtshare.co.in' + req.url);
+      res.status(301).redirect('https://' + 'blog.nxtshare.co.in' + req.url);
     }
   }
 
