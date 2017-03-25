@@ -6,10 +6,28 @@
 // Bringing express in setiing up the express router
 const express = require('express');
 const router = express.Router();
+const crypto = require('crypto');
+const path = require('path');
+const multer = require('multer');
+
+var storage = multer.diskStorage({
+    destination: path.join('static', 'uploads'),
+    filename: function (req, file, cb) {
+        crypto.pseudoRandomBytes(16, function (err, raw) {
+            if (err) return cb(err)
+
+            cb(null, raw.toString('hex') + path.extname(file.originalname))
+        })
+    }
+})
+
+
+var upload = multer({ storage });
 
 
 // Bringing in our model
 const Post = require('../models/posts');
+const Image = require('../models/images');
 
 // Getting our secret token from environment variables
 const token = process.env.SECRET_TOKEN;
@@ -147,6 +165,33 @@ router.get('/edit_post/:id', (req, res) => {
             title: `Edit ${post.title} | Site Administration | Harshit's Blog`,
             post, // Sending the post along to render
             secret: token
+        })
+    })
+})
+
+router.get('/upload', (req, res) => {
+    res.render('file_upload', {
+        title: "Upload | Site Administration | Harshit's Code Blogs",
+        secret: token
+    })
+})
+
+router.post('/upload', upload.any(), (req, res) => {
+    let files = req.files;
+    for (let file of files) {
+        let newFileData = {
+            imageName: file.filename
+        }
+        Image.create(newFileData);
+    }
+    res.redirect('/admin/images?token=' + token);
+})
+
+router.get('/images', (req, res) => {
+    Image.findAll().then((images) => {
+        res.render('show_images_urls', {
+            title: "Uploaded Images | Site Administration | Harshit's Code Blogs",
+            images: JSON.stringify(images)
         })
     })
 })

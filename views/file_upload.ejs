@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+</head>
+
+<body>
+    <% include ./partials/header %>
+        <div class="container">
+            <h1>Upload Images</h1>
+            <hr>
+            <form action="/admin/upload?token=<%= secret %>" enctype="multipart/form-data" method="POST">
+                <input type="file" name="files" multiple>
+                <br>
+                <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+        </div>
+        <% include ./partials/footer %>
+</body>
+
+</html>

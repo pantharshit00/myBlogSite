@@ -36,6 +36,21 @@
                     </a>
                 </div>
             </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="/admin/upload?token=<%= secret %>">
+                        <h4>Upload Images</h4><i class="fa fa-upload fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+
+             <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="/admin/images?token=<%= secret %>">
+                        <h4>View Images</h4><i class="fa fa-file-image-o fa-2x"></i>
+                    </a>
+                </div>
+            </div>
         </div>
         <% include ./partials/footer %>
 </body>

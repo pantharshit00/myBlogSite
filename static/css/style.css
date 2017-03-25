@@ -80,6 +80,34 @@ footer a:hover{
     color: #fff;
 }
 
+img{
+    display:block;
+    max-width:100%;
+    height:auto;
+}
+.panel img{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.panel-body a:first-child{
+    display: block;
+    padding: 4px;
+    margin-bottom: 21px;
+    line-height: 1.42857143;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 0;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+}
+
+.panel-body a:first-child:hover{
+    border-color: #2780e3;
+}
+
+
 @media all and (max-width:768px){
     footer{
         text-align: center !important;
