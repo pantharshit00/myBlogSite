@@ -9,8 +9,7 @@ const Image = sequelize.define('images', {
     },
     imageName: {
         type: Sequelize.TEXT,
-        allowNull: false,
-        unique: true
+        allowNull: false
     }
 }, {
         timestamps: false
