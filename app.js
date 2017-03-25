@@ -18,6 +18,9 @@ const app = express();
 // Cheecking the environment
 const debug = process.env.NODE_ENV !== "production";
 
+if(debug){
+  app.use(morgan("common"));
+}
 // Importing our routes
 const routes = require('./routes/index');
 const admin = require('./routes/admin')
