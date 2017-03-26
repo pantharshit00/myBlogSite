@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+
+<head>
+    <% include ./partials/head %>
+        <style>
+            body {
+                background-color: #f3f3f3;
+            }
+            
+            .white-container {
+                background: #fff;
+                padding: 30px;
+                margin-bottom: 20px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+            }
+            
+            .white-container:hover {
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            }
+            
+            .img-showcase {
+                border-radius: 10px;
+            }
+        </style>
+</head>
+
+<body>
+    <% include ./partials/header %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 white-container">
+                    <img src="https://avatars2.githubusercontent.com/u/22195362?v=3&s=460" alt="my_image" class="img-showcase">
+                    <hr>
+                    <h3>&bull; Skills</h3>
+                    <label><h4>Node js</h4><span>(Build many sites with Express)</span></label>
+                    <h4 class="pull-right">99%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-success" style="width: 99%"></div>
+                    </div>
+                    <label><h4>React</h4><span>(Including Redux,Flux and MobX)</span></label>
+                    <h4 class="pull-right">75%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-info" style="width: 75%"></div>
+                    </div>
+                    <label><h4>SQL</h4><span>(Used MySQL and PostgreSQL)</span></label>
+                    <h4 class="pull-right">85%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-primary" style="width: 85%"></div>
+                    </div>
+                    <label><h4>NoSQL DBMS</h4><span>(Used MongoDB, Redis and Firebase)</span></label>
+                    <h4 class="pull-right">60%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+                    </div>
+                    <label><h4>Front End CSS Frameworks</h4><span>(Bootstrap and Foundation)</span></label>
+                    <h4 class="pull-right">98%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-success" style="width: 98%"></div>
+                    </div>
+                    <label><h4>Angular</h4><span>(Build some MEAN stack apps)</span></label>
+                    <h4 class="pull-right">50%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+                    </div>
+                    <label><h4>Django</h4><span>(Build some sites for fun)</span></label>
+                    <h4 class="pull-right">65%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-info" style="width: 65%"></div>
+                    </div>
+                    <label><h4>PHP</h4><span>(Have done some form processing in LAMP stack)</span></label>
+                    <h4 class="pull-right">42%</h4>
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-danger" style="width: 42%"></div>
+                    </div>
+                </div>
+                <!-- second column-->
+                <div class="col-lg-7 col-md-7 col-md-offset-1 col-lg-offset-1">
+                    <div class="white-container">
+                        <h1>About me</h1>
+                        <hr>
+                        <ul type="none">
+                            <li>
+                                <h4><b>Name:</b> Harshit Pant</h4>
+                            </li>
+                            <li>
+                                <h4><b>Location:</b> <a href="https://goo.gl/maps/zYDH5hXEWT12" target="_blank">Almora, India</a></h4>
+                            </li>
+                            <li>
+                                <h4><b>Current:</b> Studying in standerd X</h4>
+                            </li>
+                            <li>
+                                <h4><b>Age:</b> 16</h4>
+                            </li>
+                            <li>
+                                <h4><b>Passion:</b> Coding and Gaming</h4>
+                            </li>
+                            <li>
+                                <h4><b>Developing:</b> <a href="//nxtshare.co.in">NxtShare</a> ,a social platform for articles</h4>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="white-container">
+                        <p>Hi all,<br>
+                        I welcome you all to my small blog website. I thank you that you visited and spent some time in my site.
+                        // TODO.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% include ./partials/footer %>
+</body>
+
+</html>

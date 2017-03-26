@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const Remarkable = require('remarkable');
 const md = new Remarkable({
-    html: true
+  html: true
 })
 
 const Post = require('../models/posts');
@@ -78,10 +78,10 @@ router.get('/blogs', (req, res) => {
 
       if (Math.ceil(max_id / 10) !== page) {
         for (let i = (page * 10) - 1; i >= (page * 10) - 10; i--) {
-          let currentPost = postsJSON[i];       
+          let currentPost = postsJSON[i];
           if (currentPost == undefined)
             continue;
-          currentPost.preview = md.render(currentPost.preview);  
+          currentPost.preview = md.render(currentPost.preview);
           posts += `<div class="panel panel-primary">
                       <div class="panel-heading">
                         <a href="/blog/${currentPost.id}"><h4>${currentPost.title}</h4></a>
@@ -129,7 +129,7 @@ router.get('/get_blogs', (req, res) => {
       res.json({ err: "Not Found" })
     else {
       let blogs = [];
-      for(let post of posts){
+      for (let post of posts) {
         post.preview = md.render(post.preview);
         blogs.push(post);
       }
@@ -143,6 +143,13 @@ router.get('/search', (req, res) => {
     title: "Search | hpcodeblogs"
   })
 })
+
+router.get('/about',(req,res)=>{
+  res.render('about',{
+    title: "About Page | Harshit's Code Blogs"
+  })
+});
+
 router.get("*", (req, res) => {
   res.status(404).render('fourntfour');
 })

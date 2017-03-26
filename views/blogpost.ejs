@@ -12,16 +12,22 @@
                 background: #fff;
                 padding: 30px;
                 margin-bottom: 20px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+            }
+            
+            .white-container:hover {
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             }
         </style>
 </head>
 
 <body>
     <% include ./partials/header %>
-    <br>
+        <br>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 white-container">
+                <div class="col-md-7 white-container">
                     <h1>
                         <%= blog.title %>
                     </h1>
@@ -29,20 +35,32 @@
                         <%- blog.content %>
                     </div>
                 </div>
+                <div class="col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1 white-container">
+                    <form id="search_form2">
+                        <div class="alert alert-danger" id="search_error2"></div>
+                        <div class="input-group">
+                            <input class="form-control" id="input_search2" type="text" placeholder="Search a post..">
+                            <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">Go!</button>
+                        </span>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-8 white-container">
-                    <div class="white-container">
-                        <div id="disqus_thread"></div>
-                    </div>
+                <div class="col-md-7 white-container">
+                    <div id="disqus_thread"></div>
                 </div>
             </div>
         </div>
-        <script src="/static/js/disqus.js" async defer>
-
-        </script>
+        <script src="/static/js/disqus.js" async defer></script>
         <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         <% include ./partials/footer %>
+            <script>
+                $(function () {
+                    $("#search_error2").hide(), $("#search_form2").submit(function (e) { e.preventDefault(); var r = $("#input_search2").val(); "" != r && r ? window.location.replace("/search?q=" + r) : ($("#search_error2").show(), $("#search_error2").html("Please enter a query")) })
+                })
+            </script>
 </body>
 
 </html>
