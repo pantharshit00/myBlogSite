@@ -107,6 +107,9 @@ img{
     border-color: #2780e3;
 }
 
+#google_translate_element img{
+    display: initial;
+}
 
 @media all and (max-width:768px){
     footer{
