@@ -1,6 +1,46 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title><%= title %></title>
-<link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/static/css/style.css">
+<title>
+    <%= title %>
+</title>
+<% if(typeof metaTags != "undefined"){ %>
+    <meta name="description" content="<%- metaTags.desc %>" />
+    <meta itemprop="name" content="<%- title %>">
+    <meta itemprop="description" content="My personal blog site. Hey my name is Harshit Pant and I love to code">
+    <meta itemprop="image" content="http://blog.nxtshare.co.in/static/img/code_img.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@theharshitpant">
+    <meta name="twitter:title" content="<%- title %>">
+    <meta name="twitter:description" content="<%= metaTags.desc %>">
+    <meta name="twitter:image:src" content="http://blog.nxtshare.co.in/static/img/code_img.jpg">
+
+    <meta property="og:title" content="<%- title %>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<%- metaTags.url %>" />
+    <meta property="og:image" content="http://blog.nxtshare.co.in/static/img/code_img.jpg" />
+    <meta property="og:description" content="<%= metaTags.desc %>"
+    
+    <meta property="og:site_name" content="hpcodeblogs" />
+    <% } else {%>
+        <meta name="description" content="This is personal blog site. My name is Harshit Pant and I love to code. Find some awesome article about development.">
+        <meta itemprop="name" content="<%- title %>">
+        <meta itemprop="description" content="My personal blog site. Hey my name is Harshit Pant and I love to code">
+        <meta itemprop="image" content="http://blog.nxtshare.co.in/static/img/code_img.jpg">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@theharshitpant">
+        <meta name="twitter:title" content="<%- title %>">
+        <meta name="twitter:description" content="This is personal blog site. My name is Harshit Pant and I love to code. Find some awesome article about development.">
+        <meta name="twitter:image:src" content="http://blog.nxtshare.co.in/static/img/code_img.jpg">
+
+        <meta property="og:title" content="<%- title %>" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="http://blog.nxtshare.co.in" />
+        <meta property="og:image" content="http://blog.nxtshare.co.in/static/img/code_img.jpg" />
+        <meta property="og:description" content="This is personal blog site. My name is Harshit Pant and I love to code. Find some awesome article about development.">
+        <meta property="og:site_name" content="hpcodeblogs" />
+        <% } %>
+            <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="/static/css/style.css">

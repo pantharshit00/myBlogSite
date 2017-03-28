@@ -23,7 +23,14 @@ router.get('/blog/:id', (req, res) => {
     if (post == null)
       res.status(404).render('fourntfour');
     else
-      res.render('blogpost', { blog, title: post.title + " | Harshit's Code Blogs" });
+      res.render('blogpost', { 
+        blog, 
+        title: post.title + " | Harshit's Code Blogs",
+        metaTags:{
+          desc:post.title,
+          url: req.url
+        }
+     });
   })
 })
 
@@ -116,7 +123,11 @@ router.get('/blogs', (req, res) => {
       posts += pagination;
       res.render('blogs', {
         title: "All Posts | Harshit's Code Blogs",
-        posts
+        posts,
+         metaTags:{
+          desc:"All Posts | Harshit's Code Blogs",
+          url: req.url
+        }
       })
     })
   }).catch((err) => { console.log(err); if (err.response.status == 404) res.status(404).render('fourntfour') })

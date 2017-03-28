@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html itemscope itemtype="http://schema.org/Article" prefix="og: http://ogp.me/ns#">
 
 <head>
     <% include ./partials/head %>
@@ -19,6 +19,20 @@
             .white-container:hover {
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             }
+            
+            #fb {
+                color: #3b5998;
+                margin-right: 30px;
+            }
+            
+            #tweet {
+                color: #0084b4;
+                margin-right: 30px;
+            }
+            
+            #plus {
+                color: #d34836;
+            }
         </style>
 </head>
 
@@ -31,8 +45,17 @@
                     <h1>
                         <%= blog.title %>
                     </h1>
+                    <i><strong>By:</strong> Harshit Pant, <strong>Timestamp:</strong> <%= new Date(blog.createdAt).toLocaleString() %></i>
+                    <hr>
                     <div>
                         <%- blog.content %>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h3>Share via</h3>
+                        <a id="fb"><i class="fa fa-facebook-official fa-3x"></i></a>
+                        <a id="tweet"><i class="fa fa-twitter fa-3x"></i></a>
+                        <a id="plus"><i class="fa fa-google-plus-official fa-3x"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1 white-container">
@@ -59,7 +82,21 @@
             <script>
                 $(function () {
                     $("#search_error2").hide(), $("#search_form2").submit(function (e) { e.preventDefault(); var r = $("#input_search2").val(); "" != r && r ? window.location.replace("/search?q=" + r) : ($("#search_error2").show(), $("#search_error2").html("Please enter a query")) })
+                    $("#fb").on("click", function () {
+                        popitup("https://facebook.com/sharer/sharer.php?u=" + window.location.href);
+                    })
+                    $("#tweet").on("click", function () {
+                        popitup("https://twitter.com/share?url=" + window.location.href + "&text=" + encodeURIComponent(document.title) + "&hashtags=code,blog,developer");
+                    })
+                    $("#plus").on("click", function () {
+                        popitup("https://plus.google.com/share?url=blog.nxtshare.co.in/blog/1");
+                    })
                 })
+                function popitup(url) {
+                    newwindow = window.open(url, 'name', 'height=600,width=800');
+                    if (window.focus) { newwindow.focus() }
+                    return false;
+                }
             </script>
 </body>
 
