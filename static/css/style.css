@@ -12,6 +12,10 @@ a{
     cursor: pointer !important;
 }
 
+#search_error, #search_error2{
+    display: none;
+}
+
 .navbar-inverse a {
     font-size: 20px;
     padding-bottom: 20px !important; 
