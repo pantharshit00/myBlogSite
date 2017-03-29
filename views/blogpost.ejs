@@ -81,7 +81,7 @@
         <% include ./partials/footer %>
             <script>
                 $(function () {
-                    $("#search_error2").hide(), $("#search_form2").submit(function (e) { e.preventDefault(); var r = $("#input_search2").val(); "" != r && r ? window.location.replace("/search?q=" + r) : ($("#search_error2").show(), $("#search_error2").html("Please enter a query")) })
+                    $("#search_form2").submit(function (e) { e.preventDefault(); var r = $("#input_search2").val(); "" != r && r ? window.location.replace("/search?q=" + r) : ($("#search_error2").show(), $("#search_error2").html("Please enter a query")) })
                     $("#fb").on("click", function () {
                         popitup("https://facebook.com/sharer/sharer.php?u=" + window.location.href);
                     })
