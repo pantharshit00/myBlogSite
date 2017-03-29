@@ -89,7 +89,7 @@
                         popitup("https://twitter.com/share?url=" + window.location.href + "&text=" + encodeURIComponent(document.title) + "&hashtags=code,blog,developer");
                     })
                     $("#plus").on("click", function () {
-                        popitup("https://plus.google.com/share?url=blog.nxtshare.co.in/blog/1");
+                        popitup("https://plus.google.com/share?url="+window.location.href);
                     })
                 })
                 function popitup(url) {
