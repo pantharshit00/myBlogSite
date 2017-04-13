@@ -38,41 +38,8 @@ app.use('/static', express.static(path.join(__dirname, 'static'))) // Static fol
 app.use('/admin', admin);
 app.use('/', routes);
 
-
-// Production
-if (!debug) {
-  // HTTP to HTTPS logic
-  function ensureSecure(req, res, next) {
-    if (req.secure)
-      next();
-    else {
-      res.status(301).redirect('https://' + 'blog.nxtshare.co.in' + req.url);
-    }
-  }
-
-  app.all('*', ensureSecure)
-
-  const PORT = process.env.PORT || 3443;
-  const HTTP_PORT = process.env.HTTP_PORT || 8080;
-
-  http.createServer(app).listen(HTTP_PORT, () => {
-    console.log('HTTP service started on PORT ' + HTTP_PORT);
-  });
-
-  let options = {
-    key: fs.readFileSync('/home/deploy/certs/key.pem'),
-    cert: fs.readFileSync('/home/deploy/certs/cert.pem')
-  }
-
-  https.createServer(options, app).listen(PORT, () => {
-    console.log('HTTPS service started on PORT ' + PORT);
-  });
-
-}
-else {
-  // Starting our app
-  app.listen(8080, () => {
+// Starting our app
+app.listen(8080, () => {
     console.log("http://localhost:8080");
-  })
+})
 
-}
