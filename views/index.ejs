@@ -25,19 +25,30 @@
     <div class="container" id="blog-display">
       <div class="row">
         <h1 style="text-align:center">Latest Posts</h1>
-          <div class="col-md-8 col-md-offset-2">
-            <br>
-            <div style="overflow-y:scroll; height: 300px;" id="showContent">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+          <br>
+          <div style="overflow-y:scroll; height: 300px;" id="showContent">
           </div>
+        </div>
       </div>
     </div>
 
     <% include ./partials/footer %>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.6/typed.min.js"></script>
       <script>
-        console.log('Loaded!');
         $(document).ready(function () {
+          $('a[href*="#"]:not([href="#"])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+              if (target.length) {
+                $('html, body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
+            }
+          });
           $('#write').typed({
             strings: ["Learn", "Learn, Code", "Learn, Code, Blog", "Learn, Code, Blog, Share"],
             typespeed: 0
@@ -49,7 +60,7 @@
               var posts = "";
               for (var i = data.length - 1; i >= 0; i--) {
                 currentPost = data[i];
-                current = "<div class=\"panel panel-primary\">\n                      <div class=\"panel-heading\">\n                        <a href=\"/blog/" + currentPost.id + "\" style=\"text-decoration: none; color:#fff\"><h4>" + currentPost.title + "</h4></a>\n                      </div>\n                      <div class=\"panel-body\">\n                        " + currentPost.preview + "<a href=\"/blog/" + currentPost.id + "\" class=\"btn btn-primary\">Read More</a>"+"\n                      </div>\n                      <div class=\"panel-footer\">\n                      <h5>" + new Date(currentPost.updatedAt).toLocaleString() + "</h5>\n                      </div>\n                    </div>";
+                current = "<div class=\"panel panel-primary\">\n                      <div class=\"panel-heading\">\n                        <a href=\"/blog/" + currentPost.id + "\" style=\"text-decoration: none; color:#fff\"><h4>" + currentPost.title + "</h4></a>\n                      </div>\n                      <div class=\"panel-body\">\n                        " + currentPost.preview + "<a href=\"/blog/" + currentPost.id + "\" class=\"btn btn-primary\">Read More</a>" + "\n                      </div>\n                      <div class=\"panel-footer\">\n                      <h5>" + new Date(currentPost.updatedAt).toLocaleString() + "</h5>\n                      </div>\n                    </div>";
                 posts += current;
               }
               $("#showContent").html(posts);
